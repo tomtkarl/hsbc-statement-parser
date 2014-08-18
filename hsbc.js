@@ -82,7 +82,7 @@ function done() {
       results.push(array[i].join(","));
     }
   }
-  let csv = results.join("\n");
+  var csv = results.join("\n");
   textarea.value = csv;
   textarea.focus();
   textarea.select();
@@ -128,7 +128,7 @@ function parseStatement(statement,$,$rootEl,array) {
         }
         var cell = cells[cell_num];
         var skip = false;
-        let cell_value = cell.innerText;
+        var cell_value = cell.innerText;
         if (!in_statement) {
           var tmp = cell_value.split("\n");
           for (var k = 0; k < tmp.length; k++) {
