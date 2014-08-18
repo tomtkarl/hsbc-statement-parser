@@ -203,7 +203,6 @@ function parseStatement(statement,$,$rootEl,array) {
             } else {
               row[2] = cell_value;
             }
-            }
           }
         } else {
           cell_value = parseFloat(cell_value);
