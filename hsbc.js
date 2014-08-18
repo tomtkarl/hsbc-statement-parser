@@ -175,6 +175,7 @@ function parseStatement(statement,$,$rootEl,array) {
             //AJAX fetch more details.
             var a = cells.eq(cell_num).find("a");
             if (a && a.length) {
+              skip = true;
               var href = a.attr("href");
               console.log("Additional: "+statement+" :: "+a[0].innerText);
               additionalPending++;
