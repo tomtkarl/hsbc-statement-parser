@@ -172,7 +172,6 @@ function parseStatement(statement,$,$rootEl,array) {
           cell_value = "\""+cell_value+"\"";
           if (cell_num == 2) {
             //Description
-            row[2] = cell_value
             // AJAX fetch more details.
             // var a = cells.eq(cell_num).find("a");
             // if (a && a.length) {
