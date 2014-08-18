@@ -172,37 +172,36 @@ function parseStatement(statement,$,$rootEl,array) {
           cell_value = "\""+cell_value+"\"";
           if (cell_num == 2) {
             //Description
-            // AJAX fetch more details.
-            // var a = cells.eq(cell_num).find("a");
-            // if (a && a.length) {
-            //   var href = a.attr("href");
-            //   console.log("Additional: "+statement+" :: "+a[0].innerText);
-            //   additionalPending++;
-            //   $.ajax({
-            //     url:href
-            //   }).done(function(data){
-            //     var a = data.indexOf("<strong>Additional details:</strong>");
-            //     if (a != -1) {
-            //       var relevant = data.substr(a,1000);
-            //       relevant = relevant.replace(/^[\s\S]*?<p>([\s\S]*?)<\/p>[\s\S]*$/,"$1");
-            //       relevant = relevant.replace(/<br \/>/g,"");
-            //       relevant = $.trim(relevant);
-            //       var tmp = relevant.split("\n");
-            //       for (var i = 0; i < tmp.length; i++) {
-            //         tmp[i] = $.trim(tmp[i]);
-            //       }
-            //       relevant = tmp.join("\n");
-            //       relevant = relevant.replace(/\n\n/g,"\n");
-            //       relevant = relevant.replace(/\n/g," | ");
-            //       row[2] = "\""+relevant+"\"";
-            //       console.log(relevant);
-            //     }
-            //     additionalPending--;
-            //     checkFinished();
-            //   });
-            // } else {
-            //   row[2] = cell_value;
-            // }
+            //AJAX fetch more details.
+            var a = cells.eq(cell_num).find("a");
+            if (a && a.length) {
+              var href = a.attr("href");
+              console.log("Additional: "+statement+" :: "+a[0].innerText);
+              additionalPending++;
+              $.ajax({
+                url:href
+              , async:false
+              }).done(function(data){
+                var a = data.indexOf("<strong>Additional details:</strong>");
+                if (a != -1) {
+                  var relevant = data.substr(a,1000);
+                  relevant = relevant.replace(/^[\s\S]*?<p>([\s\S]*?)<\/p>[\s\S]*$/,"$1");
+                  relevant = relevant.replace(/<br \/>/g,"");
+                  relevant = $.trim(relevant);
+                  var tmp = relevant.split("\n");
+                  for (var i = 0; i < tmp.length; i++) {
+                    tmp[i] = $.trim(tmp[i]);
+                  }
+                  relevant = tmp.join("\n");
+                  relevant = relevant.replace(/\n\n/g,"\n");
+                  relevant = relevant.replace(/\n/g," | ");
+                  row[2] = "\""+relevant+"\"";
+                  console.log(relevant);
+                }
+                additionalPending--;
+                checkFinished();
+              });
+            }
           }
         } else {
           cell_value = parseFloat(cell_value);
