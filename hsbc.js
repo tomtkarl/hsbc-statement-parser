@@ -181,7 +181,7 @@ function parseStatement(statement,$,$rootEl,array) {
               additionalPending++;
               $.ajax({
                 url:href
-              , async:false
+              //, async:false
               }).done(function(data){
                 var a = data.indexOf("<strong>Additional details:</strong>");
                 if (a != -1) {
@@ -196,8 +196,9 @@ function parseStatement(statement,$,$rootEl,array) {
                   relevant = tmp.join("\n");
                   relevant = relevant.replace(/\n\n/g,"\n");
                   relevant = relevant.replace(/\n/g," | ");
-                  row[2] = "\""+relevant+"\"";
                   console.log("Existing: ", row[2], "Relevant: ", relevant);
+                  row[2] = "\""+relevant+"\"";
+                  
                 }
                 additionalPending--;
                 checkFinished();
