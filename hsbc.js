@@ -197,7 +197,7 @@ function parseStatement(statement,$,$rootEl,array) {
                   relevant = tmp.join("\n");
                   relevant = relevant.replace(/\n\n/g,"\n");
                   relevant = relevant.replace(/\n/g," | ");
-                  console.log("Existing: ", row[2], "Relevant: ", relevant);
+                  console.log("Existing: ", row[2], "Relevant: ", relevant, 'href: ', href);
                   row[2] = "\""+relevant+"\"";
                   
                 }
