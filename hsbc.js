@@ -177,7 +177,8 @@ function parseStatement(statement,$,$rootEl,array) {
             if (a && a.length) {
               skip = true;
               var href = a.eq(0).attr("href");
-              console.log("Additional: "+statement+" :: "+a[0].innerText);
+              var text = a[0].innerText;
+              console.log("Additional: "+statement+" :: "+text);
               additionalPending++;
               $.ajax({
                 url:href
@@ -196,7 +197,7 @@ function parseStatement(statement,$,$rootEl,array) {
                   relevant = tmp.join("\n");
                   relevant = relevant.replace(/\n\n/g,"\n");
                   relevant = relevant.replace(/\n/g," | ");
-                  console.log("Existing: ", row[2], "innerText: ", a[0].innerText, "Relevant: ", relevant, 'href: ', href);
+                  console.log("Existing: ", row[2], "innerText: ",text, "Relevant: ", relevant, 'href: ', href);
                   row[2] = "\""+relevant+"\"";
                   
                 }
