@@ -197,7 +197,7 @@ function parseStatement(statement,$,$rootEl,array) {
                   relevant = relevant.replace(/\n\n/g,"\n");
                   relevant = relevant.replace(/\n/g," | ");
                   row[2] = "\""+relevant+"\"";
-                  console.log(relevant);
+                  console.log("Existing: ", row[2], "Relevant: ", relevant);
                 }
                 additionalPending--;
                 checkFinished();
