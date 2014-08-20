@@ -177,7 +177,7 @@ function parseStatement(statement,$,$rootEl,array) {
             if (a && a.length) {
               skip = true;
               var href = a.eq(0).attr("href");
-              console.log("Additional: "+statement+" :: "+a[0].innerText);
+              console.log("Additional: "+statement+" :: "+a[0].innerText, href);
               additionalPending++;
               $.ajax({
                 url:href
