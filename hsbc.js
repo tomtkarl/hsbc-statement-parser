@@ -227,7 +227,7 @@ function parseStatement(statement,$,$rootEl,array) {
           }
         }
         if (!skip) {
-          row.push(cell_value);
+          row[cell_num] = cell_value;
         }
       }
       array.push(row);
