@@ -181,12 +181,12 @@ function parseStatement(statement,$,$rootEl,array) {
               additionalPending++;
               $.ajax({
                 url:href
-              //, async:false
+              , cache: false
               }).done(function(data){
-                console.log(data.substr(data.indexOf("<strong>Additional details:</strong>"),1000));
+                console.log(data.substr(data.indexOf("<strong>Additional details:</strong>"),500));
                 var a = data.indexOf("<strong>Additional details:</strong>");
                 if (a != -1) {
-                  var relevant = data.substr(a,1000);
+                  var relevant = data.substr(a,500);
                   relevant = relevant.replace(/^[\s\S]*?<p>([\s\S]*?)<\/p>[\s\S]*$/,"$1");
                   relevant = relevant.replace(/<br \/>/g,"");
                   relevant = $.trim(relevant);
