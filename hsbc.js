@@ -183,7 +183,7 @@ function parseStatement(statement,$,$rootEl,array) {
                 url:href
               //, async:false
               }).done(function(data){
-                console.log(data);
+                console.log(data.substr(data.indexOf("<strong>Additional details:</strong>"),1000));
                 var a = data.indexOf("<strong>Additional details:</strong>");
                 if (a != -1) {
                   var relevant = data.substr(a,1000);
