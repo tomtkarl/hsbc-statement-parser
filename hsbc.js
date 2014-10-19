@@ -181,7 +181,8 @@ function parseStatement(statement,$,$rootEl,array) {
               console.log("Additional: "+statement+" :: "+text);
               additionalPending++;
               $.ajax({
-                url:href
+                url:href,
+                async: false
               }).done(function(data){
                 //console.log(data.substr(data.indexOf("<strong>Additional details:</strong>"),500));
                 var a = data.indexOf("<strong>Additional details:</strong>");
